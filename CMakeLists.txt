@@ -2,10 +2,10 @@
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 project(producer-consumer-example)
 
-file(GLOB_RECURSE SOURCE_FILES 
+file(GLOB_RECURSE SOURCE_FILES
 	${CMAKE_SOURCE_DIR}/src/*.cpp)
-	
-file(GLOB_RECURSE HEADER_FILES 
+
+file(GLOB_RECURSE HEADER_FILES
 	${CMAKE_SOURCE_DIR}/src/*.h
 	${CMAKE_SOURCE_DIR}/src/*.hpp)
 
@@ -18,6 +18,9 @@ include_directories(
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD_REQUIRED ON)
+
+find_package (Threads REQUIRED)
+target_link_libraries(${PROJECT_NAME} Threads::Threads)
 
 # Create virtual folders to make it look nicer in VS
 if(MSVC_IDE)

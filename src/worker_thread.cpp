@@ -10,7 +10,7 @@
 
 void WorkerThread(const int workerId, TaskQueue& taskQueue,
                   std::mutex& coutMutex) {
-    auto& [m, cv] = taskQueue.Subscribe();
+    const auto& [m, cv] = taskQueue.Subscribe();
 
     while (true) {
         auto data = [&]() -> std::optional<Task*> {

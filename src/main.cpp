@@ -5,6 +5,7 @@
 #include <mutex>
 #include <thread>
 #include <vector>
+#include <condition_variable>
 
 #include "include/task.h"
 #include "include/task_queue.h"
